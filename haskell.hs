@@ -1,7 +1,39 @@
+{-# LANGUAGE DataKinds #-}
 import Text.Printf
+import System.Win32 (xBUTTON1)
+{-
+--main = putStrLn "Hello, World!"
+--ciktisi: Hello, World!
+
+b :: Bool
+b = True
+
+c :: Char
+c = 'A'
+
+s :: String
+s = "Hello, World!"
+
+i :: Integer
+i = 92233720368547758079223372036854775807
+
+si :: Int
+si = 9223372036854775807
+
+f :: Float
+f = 3.888888888889
+
+d :: Double
+d = 3.888888888889
+
+
+main = printf "b(String) =%s\nc = %c\ns=%s\ninteger=%d\nInt =%d\nf=%f\nd=%f" (show b) c s i si f d
+-}
+{-
+--Aritmetikler
 
 a :: Int
-a = 3
+a = 22
 
 b :: Int
 b = 5
@@ -9,40 +41,75 @@ b = 5
 c :: Int
 c = a * b
 
-f :: Int -> Int
-f x = x + 2
+d :: Int
+d = a + b
+
+e :: Int
+e = a - b
+
+f :: Double
+f = fromIntegral a / fromIntegral b
+--burada fromIntegral fonksiyonu ile a ve b yi double a çeviriyoruz
+
+g :: Int
+g = mod a b
+
+h :: Int
+h = a ^ b
+
+main :: IO ()
+main = do
+    printf "a=%d\nb=%d\na*b=%d\na+b=%d\na-b=%d\na/b=%f\na mod b=%d\na^b=%d" a b c d e f g h
+    -}
+--Fonksiyonlar
+{-
+inc :: Int -> Int
+inc x = x + 1
+
+k = inc 3
 
 topla :: Int -> Int -> Int
-topla x y = x + y
+topla a b = a + b
 
-d :: Int
-d = topla 5 12
+b = topla 3 5
 
---main = print d
+yas 17 = "Genc"
+yas 25 = "Orta"
+yas 40 = "Yasli"
+yas _ = "Bilinmeyen"
 
-x :: Bool
-x = True
+y17 = yas 17
+y25 = yas 25
+y40 = yas 40
 
-y :: Char
-y = 'A'
+yas2 x
+    | x == 18 = "Genc"
+    | x == 40 = "Orta"
+    | x == 60 = "Yasli"
+    | otherwise = "Bilinmeyen"
 
-s :: String
-s = "Hello"
+yo = yas2 52
 
-i :: Integer
-i = 912312590342580275823745034273270879869869097987467487574454565654757575658797087978987575456
+fact 0 = 1
+fact x = x * fact (x - 1)
 
-si :: Int
-si = 2348
+c = fact 5 --120
 
-fl :: Double
-fl = 3.888888888888888888888
+fib x 
+    | x == 0 = 0
+    | x == 1 = 1
+    | otherwise = fib (x - 1) + fib (x - 2)
 
-db :: Double
-db = 3.888888888888888
+d = fib 6 --8
 
---main = printf "%d %c %s %d %d %f %f" b y s i si fl db
-
-
---main = print (f 5);
-main = printf "%d" (f 5)
+main = do
+    print k
+    print b
+    print y17
+    print y25
+    print yo
+    print c
+    print d
+    print $ fib 8 --buradaki $ işareti print fonksiyonunu daha önceki fonksiyonun sonucuna uygular
+    print (fib 8) --bu şekilde de aynı sonucu alırız
+-}
