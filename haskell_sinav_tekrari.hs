@@ -4,8 +4,9 @@ import Data.List
 --import Data.List: Listelerle ilgili fonksiyonlarin oldugu kutuphanedir
 
 
+
 {-
---FromIntegral: Integer ve Int arasinda donusum yapar
+-FromIntegral: Integer ve Int arasinda donusum yapar
 a :: Int
 a = 5
 b :: Int
@@ -13,14 +14,17 @@ b = 3
 f :: Double
 f = fromIntegral a / fromIntegral b
 
-
+main :: IO ()
 main = do 
     printf "a=%d\nb=%d\na/b=%f\n" a b f
     -- a = 5 b = 3 a/b = 1.6666666666666667
 
 --Mod: Modulus islemi yapar yani kalanini verir
+a :: Int
 a = 5
+b :: Int
 b = 4
+
 g = mod a b
 main = print g
 --1
@@ -374,8 +378,7 @@ main = do
     print (map karesi [1,2,3])
     print "myMap"
     print (myMap karesi [1,2,3])
--}
--}
+
 enBuyuk :: [Int] -> Int
 -- Değiştirilebilir alan 0'ın başlangıcı
 enBuyuk [] = 0
@@ -436,3 +439,5 @@ buyukleriBul a = filter (>a)
 p = buyukleriBul 5 [1,2,3,4,5,6,7,8,9,10]
 main = print p
 --[6,7,8,9,10]
+-}
+-}
