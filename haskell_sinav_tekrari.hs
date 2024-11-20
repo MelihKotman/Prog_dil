@@ -231,8 +231,9 @@ product [1,2,3,4] = 24
 --[x ^ 2 | x <- [1..10], mod x 2 == 0] = [4,16,36,64,100]
 --[x ^ 2 | x <- [1..10], mod x 2 == 0 || mod x 3 == 0] = [4,9,16,36,64,100]
 --sort: Listeyi siralar
+--sort :: Ord a => [a] -> [a]
+--sort [3,1,2] = [1,2,3]
 {-
-sort [3,1,2] = [1,2,3]
 t:c = [1,2,3]
 t = 1
 c = [2,3]
@@ -284,6 +285,7 @@ sondakiHaricHepsi (x:xs) = x : sondakiHaricHepsi xs
 bastanAl :: (Eq a1, Num a1) => [a2] -> a1 -> [a3]
 bastanAl l 0 = []
 bastanAl [] n = []
+bastan :: Num t => [a] -> t -> [a]
 bastan (x:xs) n = x : bastan xs (n-1)
 --main = print (bastan [1,2,3,4,5] 2) --[1,2]
 
@@ -349,8 +351,9 @@ karesi x = x ^ 2
 myMap :: (t -> a) -> [t] -> [a]
 myMap f [] = []
 myMap f (x:xs) = f x : myMap f xs
-
---dordunTamKatiMi x = mod x 4 == 0
+--dordunTamKatiMi :: Integer -> Bool
+--dordunTamKatiMi :: Integral a => a -> Bool
+--dordunTamKatiMi x = Prelude.mod x 4 == 0
 
 --foldr: Listeyi bir degerde toplar(sağdan sola)
 --foldl: Listeyi bir degerde toplar(soldan saga)
@@ -363,8 +366,10 @@ hepsiDogruMu = foldr (&&) True [True, 5 == 7] -- True && (5 == 7 && True)
 --main = print hepsiDogruMu --False cunku 5 == 7 false
 facto :: (Num b, Enum b) => b -> b
 facto x = foldr (*) 1 [1..x]
+
+--tersSirala :: [Int] -> [Int]
 tersSirala :: [Int] -> [Int]
-tersSirala = Data.List.reverse . sort
+tersSirala = Data.List.reverse .sort
 tersSirali :: [Int]
 tersSirali = tersSirala [5, 1, 2]
 --main = print tersSirali --[5,2,1]
@@ -418,6 +423,7 @@ enBuyuk [a] = a
 enBuyuk [a, b] = if a < b then b else a
 enBuyuk (x:y:xs) = if x > y then enBuyuk (x:xs) else enBuyuk (y:xs)
 -- Değiştirilebilir alan 0'ın bitişi
+aa :: Int
 aa = enBuyuk [1,2,-5,3,15,20]
 --main = print a
 --20
