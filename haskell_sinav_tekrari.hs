@@ -38,7 +38,7 @@ yas 40 = "Orta"
 yas 60 = "Yasli"
 yas _ = "Bilinmeyen"
 
-yas3 :: (Eq a, Num a) => a -> String
+yas3 :: (Eq a, Num a) => a -> String --a tipinde bir deger alir ve string tipinde bir deger dondurur
 yas3 x
     | x == 18 = "Genc"
     | x == 40 = "Orta"
@@ -49,7 +49,7 @@ yas3 x
 
  
 --Faktoriyel
-fact :: (Eq t, Num t) => t -> t
+fact :: (Eq t, Num t) => t -> t --Bunun anlami t tipinde bir deger alir ve t tipinde bir deger dondurur
 fact 0 = 1
 fact x = x * fact (x - 1)
 c :: Integer
@@ -59,7 +59,7 @@ c = fact 5
 
 
 --fibonnacci
-fib :: (Eq t, Num t, Num a) => t -> a
+fib :: (Eq t, Num t, Num a) => t -> a --Bunun anlami t tipinde bir deger alir ve a tipinde bir deger dondurur
 fib x
     | x == 0 = 0
     | x == 1 = 1
@@ -73,7 +73,7 @@ d = fib 6
 --ornegin: topla (mod 5 3) 4 yerine topla $ mod 5 3 $ 4 yazilabilir
 
 --Fonksiyon ornekleri
-arttir :: Num a => a -> a
+arttir :: Num a => a -> a --Bunun anlami a tipinde bir deger alir ve a tipinde bir deger dondurur
 arttir x = x + 1
 k :: Integer
 k = arttir 5
@@ -88,7 +88,7 @@ l = arttir 5.5
 --Ornek: int i = 5; int j = f(7); printf(".....");
 --Haskell'da fonksiyona bir deger verdigimizde cozmez sadece istendigi zaman yapar
 
-faktoriyel :: (Eq t, Num t) => t -> t
+faktoriyel :: (Eq t, Num t) => t -> t ---Bunun anlami t tipinde bir deger alir ve t tipinde bir deger dondurur
 faktoriyel x 
     | x == 0 = 1
     | otherwise = x * faktoriyel (x - 1)
@@ -105,7 +105,7 @@ fib x
 -}
 x :: Integer
 x = 0
-kapi :: (Eq a1, Num a1, Num a2) => a1 -> a2
+kapi :: (Eq a1, Num a1, Num a2) => a1 -> a2 --
 kapi x 
     | x == 0 =  1
     | x == 1 =  0
