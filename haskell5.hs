@@ -17,12 +17,14 @@ ucleTopla  = topla  3
 
 -- map
 -- map f 1
-{-
+
+karesi :: Num a => a -> a
 karesi x = x ^ 2
 
+myMap :: (t -> a) -> [t] -> [a]
 myMap f [] = []
 myMap f (x:xs) = f x : myMap f xs
--}
+
 dordunTamKatiMi :: Int -> Bool
 dordunTamKatiMi x = mod x 4 == 0
 
@@ -32,6 +34,7 @@ hepsiDogruMu = foldr (&&) True [True, 5 == 7] -- True && (5 == 7 && True)
 
 
 
+fact :: (Num b, Enum b) => b -> b
 fact x = foldr (*) 1 [1..x] 
 main = do 
     print "topla:"
