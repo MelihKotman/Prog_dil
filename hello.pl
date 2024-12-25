@@ -20,4 +20,4 @@ elemani(X, [X | Xs]).
 elemani(X, [Y | Ys]) :- elemani(X, Ys).
 
 sonaEkle([], Y, [Y]).
-sonaEkle([X | Xs], X, [X | Ys]) :- sonaEkle(Xs, Y, Ys).
+sonaEkle([X | Xs], Y, [X | Ys]) :- sonaEkle(Xs, Y, Ys).
