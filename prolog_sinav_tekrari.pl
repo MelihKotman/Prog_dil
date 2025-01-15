@@ -29,7 +29,7 @@ arkadasi(ayse,veli).
 
 %eger A, L'nin elemanı ise basarili olur
 eleman(X,[X | Xs]).
-eleman(Y,[X | Xs]) :- eleman(Y,Xs).
+eleman(Y,[X | Xs]) :- eleman(Y,Xs). %recursive olarak devam eder ve her elemanı kontrol eder
 
 %eleman(X,[1,2,3,4,5,6,7,8,9,10]). %X=1 doner
 %eleman(3,[1,2,3,4,5,6,7,8,9,10]). %true
@@ -37,21 +37,23 @@ eleman(Y,[X | Xs]) :- eleman(Y,Xs).
 
 %L1'in sonuna Y eklenince L2 ise basarili olur
 sonaEkle([],Y,[Y]).
-sonaEkle([X | Xs],Y,[X | Ys]) :- sonaEkle(Xs,Y,Ys).
+sonaEkle([X | Xs],Y,[X | Ys]) :- sonaEkle(Xs,Y,Ys). %recursive olarak devam eder ve son elemana kadar gider sonrasinda Y ekler ardindan L2 olusur
 
 %sonaEkle([1,2,3,4,5],6,L). %L=[1,2,3,4,5,6] doner
 %sonaEkle([1,2,3,4,5],6,[1,2,3,4,5,6]). %true
 
 % eger L1 ve L2 listeleri birlesip L3 listesini olusturuyorsa basarili olur
 birlestir([],L,L).
-birlestir([X | Xs],Y,[X | Zs]) :- birlestir(Xs,Y,Zs).
+birlestir([X | Xs],Y,[X | Zs]) :- birlestir(Xs,Y,Zs). %recursive olarak devam eder ve L1 listesini L2 listesine ekler ardindan L3 olusur
 
 %birlestir([1,2,3],[4,5,6],L). %L=[1,2,3,4,5,6] doner
 %birlestir([1,2,3],[4,5,6],[1,2,3,4,5,6]). %true
 
 %eger L1 listesi ters cevrilince L2 listesi olusuyorsa basarili olur
 tersCevir([],[]).
-tersCevir([X | Xs],Y) :- tersCevir(Xs,Z), sonaEkle(Z,X,Y).
+tersCevir([X | Xs],Y) :-
+    tersCevir(Xs,Z),
+    sonaEkle(Z,X,Y). %sona kadar gider ardindan son elemani ekler ve sirayla devam eder ve L2 listesini olusturur
 
 %tersCevir([1,2,3,4,5],L). %L=[5,4,3,2,1] doner
 %tersCevir([1,2,3,4,5],[5,4,3,2,1]). %true
@@ -93,7 +95,9 @@ enKucuk([X|Xs], Min) :-
 
 %L1 listesindeki elemanlarin toplami L2 olursa basarili olur
 topla([X],X).
-topla([X | Xs],Sum) :- topla(Xs,Z), Sum is X + Z.
+topla([X | Xs],Sum) :-
+    topla(Xs,Z),
+    Sum is X + Z. %recursive olarak devam eder ve toplar
 
 %topla([1,2,3,4,5],15). %true
 %topla([1,2,3,4,5],16). %false
@@ -101,7 +105,9 @@ topla([X | Xs],Sum) :- topla(Xs,Z), Sum is X + Z.
 
 %L1 listesindeki elemanlarin carpimi L2 olursa basarili olur
 carp([X],X).
-carp([X | Xs],Product) :- carp(Xs,Z), Product is X * Z.
+carp([X | Xs],Product) :-
+    carp(Xs,Z),
+    Product is X * Z. %recursive olarak devam eder ve carpimini alir
 
 %carp([1,2,3,4,5],120). %true
 %carp([1,2,3,4,5],121). %false
@@ -109,7 +115,9 @@ carp([X | Xs],Product) :- carp(Xs,Z), Product is X * Z.
 
 %L1 listesin uzunlugu dogru ise basarili olur
 uzunluk([],0).
-uzunluk([_ | Xs],L) :- uzunluk(Xs,Ls), L is Ls + 1.
+uzunluk([_ | Xs],L) :-
+    uzunluk(Xs,Ls),
+    L is Ls + 1.
 
 %uzunluk([1,2,3,4,5],5). %true
 %uzunluk([1,2,3,4,5],6). %false
