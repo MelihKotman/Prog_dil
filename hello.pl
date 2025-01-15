@@ -3,7 +3,7 @@ insan(ayse).
 sicak(afrika).
 buyuk(karpuz, elma).
 buyuk(karpuz, cilek).
-
+% :-
 seviyor(romeo, juliet).
 seviyor(juliet, romeo).
 seviyor(thor, juliet).
